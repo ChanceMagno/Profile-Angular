@@ -1,12 +1,38 @@
-<div class="parallax-container">
-      <div class="parallax" materialize="parallax"><img src="../assets/images/gaetano-cessati-240600.jpg"></div>
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col l10">
+    <div class="parallax-container">
+      <div class="parallax section scrollspy" materialize="parallax"><img src="../assets/images/gaetano-cessati-240600.jpg" id="introduction">
+          <h2 class="header">About</h2>
+      </div>
     </div>
     <div class="section white">
       <div class="row container">
-        <h2 class="header">Parallax</h2>
+        <h2 class="header">About</h2>
         <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
       </div>
     </div>
     <div class="parallax-container">
-      <div class="parallax" materialize="parallax"><img src="../assets/images/rawpixel-com-296613.jpg"></div>
+      <div class="parallax section scrollspy" materialize="parallax"><img src="../assets/images/rawpixel-com-296613.jpg" id="structure"></div>
     </div>
+    <div class="section white">
+      <div class="row container">
+        <h2 class="header">Projects</h2>
+        <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax" materialize="parallax"><img src="../assets/images/gaetano-cessati-240600.jpg"></div>
+    </div>
+  </div>
+  <div class="col l2 scroll">
+    <div class="col hide-on-small-only m3 l2">
+     <ul class="section table-of-contents">
+       <li><a href="#introduction" scrollOffset="500">Introduction</a></li>
+       <li><a href="#structure">Structure</a></li>
+       <li><a href="#initialization">Intialization</a></li>
+     </ul>
+   </div>
+  </div>
+</div>
+<app-footer></app-footer>

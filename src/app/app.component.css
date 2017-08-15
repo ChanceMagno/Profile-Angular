@@ -1,0 +1,9 @@
+
+ .scroll {
+   scroll-behavior: smooth;
+ }
+
+ #introduction {
+   background-image: url("../assets/images/gaetano-cessati-240600.jpg");
+   background-repeat: no-repeat;
+ }

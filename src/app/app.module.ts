@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 import * as $ from 'jquery';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
