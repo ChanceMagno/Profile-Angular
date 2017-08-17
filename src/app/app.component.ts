@@ -21,35 +21,53 @@ import { ScrollToService } from 'ng2-scroll-to-el';
       transform: 'translateX(-150%)',
     })),
     state('up', style({
-      transform: 'translateY(-150%)',
+      transform: 'translateY(-150%) translateX(75%)' ,
     })),
     state('enlarge',   style({
       transform: 'scale(1.5)',
     })),
     state('spin',   style({
-      transform: 'rotateY(180deg) translateX(150%) translateY(0%)'
+      transform: 'rotateY(180deg) translateX(45%) translateY(0%)'
     })),
-    transition('* => up', animate('00ms ease-out')),
-    transition('* => *', animate('5000ms ease')),
-  ])
-]
+    transition('* => up', animate('0ms ease-out')),
+    transition('* => *', animate('4000ms ease')),
+  ]),
+  trigger('popOverState', [
+      state('show', style({
+        opacity: 1
+      })),
+      state('hide',   style({
+        opacity: 0
+      })),
+      transition('show => hide', animate('600ms ease-out')),
+      transition('hide => show', animate('1000ms ease-in'))
+    ])
+  ]
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'app';
   position: string;
   photoUrl = "../assets/images/rawpixel-com-296613.jpg";
+  show = false;
 
   constructor(private scrollService: ScrollToService) { }
 
       ngOnInit(){
-        this.changePosition('up');
 
       }
 
-      testing(message){
-        console.log(message)
+      ngAfterViewInit(){
+          this.changePosition('up');
+      }
+
+      get stateName() {
+        return this.show ? 'show' : 'hide'
+      }
+
+      toggle(){
+        this.show = !this.show;
       }
 
       scrollToTop(element) {
@@ -64,6 +82,10 @@ export class AppComponent implements OnInit{
     public handleScroll(event: ScrollEvent) {
     if (event.isWindowEvent) {
       this.changePosition('spin')
+      if(!this.show){
+        this.toggle()
+
+      }
     }
 
   }
