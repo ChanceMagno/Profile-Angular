@@ -18,17 +18,19 @@ import { ScrollToService } from 'ng2-scroll-to-el';
   animations: [
   trigger('photoState', [
     state('move', style({
-      transform: 'translateX(-100%)',
+      transform: 'translateX(-150%)',
+    })),
+    state('up', style({
+      transform: 'translateY(-150%)',
     })),
     state('enlarge',   style({
       transform: 'scale(1.5)',
     })),
     state('spin',   style({
-      transform: 'rotateY(180deg) rotateZ(90deg) translateX(-100%)'
+      transform: 'rotateY(180deg) translateX(150%) translateY(0%)'
     })),
-    transition('spin => move', animate('2000ms ease-out')),
-    transition('* => *', animate('500ms ease')),
-
+    transition('* => up', animate('00ms ease-out')),
+    transition('* => *', animate('5000ms ease')),
   ])
 ]
 })
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit{
   constructor(private scrollService: ScrollToService) { }
 
       ngOnInit(){
-        this.changePosition('spin');
+        this.changePosition('up');
 
       }
 
@@ -61,7 +63,7 @@ export class AppComponent implements OnInit{
 
     public handleScroll(event: ScrollEvent) {
     if (event.isWindowEvent) {
-      this.changePosition('move')
+      this.changePosition('spin')
     }
 
   }
