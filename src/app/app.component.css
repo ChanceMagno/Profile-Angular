@@ -1,4 +1,8 @@
 
+.header {
+  text-align: center;
+}
+
  .scroll {
    scroll-behavior: smooth;
  }
@@ -13,4 +17,8 @@
 
  .aboutContent {
    text-align: center;
+ }
+
+ .parallax-container {
+   height: 1000px;
  }

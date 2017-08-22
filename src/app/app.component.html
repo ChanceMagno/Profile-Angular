@@ -1,28 +1,21 @@
 <app-navbar (scrollToAbout)="scrollToTop(about)" (scrollToProjects)="scrollToTop(projects)" (scrollToContact)="scrollToTop(contact)"></app-navbar>
-<div class="row" >
+<div class="row" detect-scroll (onScroll)="handleScroll($event)">
   <div class="col l12">
     <div class="parallax-container">
       <div class="parallax section" materialize="parallax"><img src="../assets/images/road.jpg">
       </div>
     </div>
-    <div class="section white" detect-scroll (onScroll)="handleScroll($event)" #about>
+    <div class="section white"  #about>
       <div class="row container" >
         <h2 class="header">About me</h2>
         <div class="row aboutContent">
-          <div class="col l3 offset-l1">
-            <img [src]="photoUrl" [@photoState]="position" center alt="" class="aboutImg">
-          </div>
-          <div class="col l8">
-            <div [@popOverState]='stateName'>
+            <img [src]="photoUrl" [@photoState]="position" center alt="profile image" class="aboutImg">
+            <div class="row" [@popOverState]='stateName'>
               <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
               The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-            </div>
           </div>
         </div>
-        <div class="row">
-        </div>
-        <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
       </div>
     </div>
     <div class="parallax-container">
@@ -40,10 +33,11 @@
     </div>
     <div class="section white" #contact>
       <div class="row container">
-        <h2 class="header" >Projects</h2>
-        <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+        <h2 class="header" >Contact info</h2>
+        <p class="grey-text text-darken-3 lighten-3"><a href="mailto:webmaster@example.com">Jon Doe</a></p>
       </div>
     </div>
   </div>
 </div>
+<button type="button" (click)="buttonTest()" name="button">button test</button>
 <app-footer></app-footer>

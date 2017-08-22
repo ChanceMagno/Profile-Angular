@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed" (sendMessage)="testing($event)">
   <nav class="nav-extended">
      <div class="nav-wrapper">
        <a class="brand-logo">Chance Magno</a>
@@ -28,9 +28,9 @@
      </div>
      <div class="nav-content">
        <ul class="tabs tabs-transparent">
-         <li class="tab"><a (click)="emitAboutScroll()"  class="active" >About me</a></li>
-         <li class="tab"><a (click)="emitProjectScroll()" >Portfolio</a></li>
-         <li class="tab"><a (click)="emitContactScroll()" >Contact</a></li>
+         <li class="tab"><a (click)="emitAboutScroll()" [class]="test(about)" >About me</a></li>
+         <li class="tab"><a (click)="emitProjectScroll()" [class]="test(projects)">Portfolio</a></li>
+         <li class="tab"><a (click)="emitContactScroll()" [class]="test(contact)">Contact</a></li>
        </ul>
      </div>
    </nav>

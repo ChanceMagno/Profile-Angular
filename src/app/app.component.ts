@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Inject, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, ElementRef, OnInit, Inject, ViewChild, AfterViewInit, EventEmitter, Output, Input} from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 import { trigger,state,style,animate,transition } from '@angular/animations';
 import { ScrollEvent } from 'ngx-scroll-event';
@@ -30,7 +30,7 @@ import { ScrollToService } from 'ng2-scroll-to-el';
       transform: 'rotateY(180deg) translateX(45%) translateY(0%)'
     })),
     transition('* => up', animate('0ms ease-out')),
-    transition('* => *', animate('4000ms ease')),
+    transition('up => *', animate('4000ms ease')),
   ]),
   trigger('popOverState', [
       state('show', style({
@@ -40,7 +40,7 @@ import { ScrollToService } from 'ng2-scroll-to-el';
         opacity: 0
       })),
       transition('show => hide', animate('600ms ease-out')),
-      transition('hide => show', animate('1000ms ease-in'))
+      transition('hide => show', animate('3000ms ease-in'))
     ])
   ]
 })
@@ -51,22 +51,27 @@ export class AppComponent implements OnInit, AfterViewInit{
   position: string;
   photoUrl = "../assets/images/rawpixel-com-296613.jpg";
   show = false;
+  @Output() sendMessage= new EventEmitter<string>();
+    message: any;
 
   constructor(private scrollService: ScrollToService) { }
 
       ngOnInit(){
+      }
 
+      logAnimation($event) {
+        console.log(`${this.position} animation ${$event.phaseName}`)
       }
 
       ngAfterViewInit(){
-          this.changePosition('up');
+
       }
 
       get stateName() {
         return this.show ? 'show' : 'hide'
       }
 
-      toggle(){
+      fadeInContent(){
         this.show = !this.show;
       }
 
@@ -74,20 +79,14 @@ export class AppComponent implements OnInit, AfterViewInit{
         this.scrollService.scrollTo(element, 500, -100);
     }
 
-
     changePosition(newPosition: string){
       this.position = newPosition;
     }
 
     public handleScroll(event: ScrollEvent) {
-    if (event.isWindowEvent) {
-      this.changePosition('spin')
       if(!this.show){
-        this.toggle()
-
+        this.fadeInContent()
       }
     }
-
-  }
 
 }
