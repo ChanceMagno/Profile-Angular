@@ -2,12 +2,15 @@
 <div class="row" detect-scroll (onScroll)="handleScroll($event)">
   <div class="col l12">
     <div class="parallax-container">
-      <div class="parallax section" materialize="parallax"><img src="../assets/images/road.jpg">
+      <div class="parallax section" materialize="parallax">
+          <h1 class="name">Chance Magno</h1>
+        <img src="../assets/images/road.jpg">
+
       </div>
     </div>
     <div class="section white"  #about>
       <div class="row container" >
-        <h2 class="header">About me</h2>
+        <p class="header">About me</p>
         <div class="row aboutContent">
             <img [src]="photoUrl" [@photoState]="position" center alt="profile image" class="aboutImg">
             <div class="row" [@popOverState]='stateName'>
@@ -18,10 +21,10 @@
         </div>
       </div>
     </div>
-    <div class="parallax-container">
+    <!-- <div class="parallax-container">
       <div class="parallax section scrollspy" materialize="parallax"><img src="../assets/images/rawpixel-com-296613.jpg"></div>
-    </div>
-    <div class="section white" #projects>
+    </div> -->
+    <div class="section white projectsContent" #projects>
       <div class="row container">
         <h2 class="header">Projects</h2>
         <p class="grey-text text-darken-3 lighten-3">
