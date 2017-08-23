@@ -27,6 +27,8 @@ contact: any;
       return "active"
     } else if(tabName === this.projects){
       return ""
+      }else if(tabName === this.contact){
+        return ""
     } else {return "active"}
   }
 

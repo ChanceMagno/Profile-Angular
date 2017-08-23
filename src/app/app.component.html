@@ -1,11 +1,11 @@
 <app-navbar (scrollToAbout)="scrollToTop(about)" (scrollToProjects)="scrollToTop(projects)" (scrollToContact)="scrollToTop(contact)"></app-navbar>
 <div class="row" detect-scroll (onScroll)="handleScroll($event)">
-  <div class="col l12">
+  <div class="row">
     <div class="parallax-container">
       <div class="parallax section" materialize="parallax">
           <h1 class="name">Chance Magno</h1>
+          <h4 class="name">excited to create</h4>
         <img src="../assets/images/road.jpg">
-
       </div>
     </div>
     <div class="section white"  #about>
@@ -21,18 +21,12 @@
         </div>
       </div>
     </div>
-    <!-- <div class="parallax-container">
-      <div class="parallax section scrollspy" materialize="parallax"><img src="../assets/images/rawpixel-com-296613.jpg"></div>
-    </div> -->
     <div class="section white projectsContent" #projects>
       <div class="row container">
         <h2 class="header">Projects</h2>
         <p class="grey-text text-darken-3 lighten-3">
           Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
       </div>
-    </div>
-    <div class="parallax-container">
-      <div class="parallax" materialize="parallax"><img src="../assets/images/gaetano-cessati-240600.jpg"></div>
     </div>
     <div class="section white" #contact>
       <div class="row container">
